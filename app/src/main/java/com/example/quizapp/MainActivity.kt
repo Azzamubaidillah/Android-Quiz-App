@@ -2,6 +2,8 @@ package com.example.quizapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 
 
@@ -10,9 +12,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        btn_start.setOnCLickListener {
+        findViewById<Button>(R.id.btn_start).setOnClickListener {
 
-            if (et_name.text.toString().isEmpty()){
+            if (findViewById<EditText>(R.id.et_name).text.toString().isEmpty()){
                 Toast.makeText(this, "Masukkan nama", Toast.LENGTH_SHORT).show()
 
             }
