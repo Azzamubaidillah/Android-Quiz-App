@@ -104,8 +104,15 @@ class QuizQuestionActivity : AppCompatActivity(),View.OnClickListener {
 
     private fun setQuestion(){
 
-        mCurrentPosition = 1
         val question = mQuestionList!!.get(mCurrentPosition-1)
+
+        defaultOptionsView()
+
+        if (mCurrentPosition == mQuestionList!!.size){
+            findViewById<Button>(R.id.btn_submit).text = "Finish"
+        } else {
+            findViewById<Button>(R.id.btn_submit).text = "Submit"
+        }
 
 
         findViewById<ProgressBar>(R.id.progressBar).progress = mCurrentPosition
@@ -121,7 +128,7 @@ class QuizQuestionActivity : AppCompatActivity(),View.OnClickListener {
     }
 
     private fun selectedOptionView(tv: TextView, selectedOptionNum: Int){
-        defaultOptiosView()
+        defaultOptionsView()
         mSelectedOptionPosition = selectedOptionNum
 
         tv.setTextColor(Color.parseColor("#363A43"))
@@ -133,7 +140,7 @@ class QuizQuestionActivity : AppCompatActivity(),View.OnClickListener {
         )
     }
 
-    private fun defaultOptiosView(){
+    private fun defaultOptionsView(){
         val options = ArrayList<TextView>()
         options.add(0, findViewById(R.id.tv_option_one))
         options.add(1, findViewById(R.id.tv_option_two))
