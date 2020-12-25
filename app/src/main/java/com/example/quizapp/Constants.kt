@@ -29,7 +29,7 @@ object  Constants{
                 "Kasa",
                 "Mikasa",
                 "Janeta",
-                3
+                2
         )
         questionslist.add(que2)
 
